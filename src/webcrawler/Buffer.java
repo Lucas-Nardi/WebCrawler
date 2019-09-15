@@ -1,46 +1,44 @@
 package webcrawler;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
-
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Buffer implements Observable{
 
-    private Queue <String> fila = new LinkedList<>();
-    private ArrayList <Observer> observers = new ArrayList<>();
-    
+    private Queue <String> fila = new LinkedList<>();  
+    private Observer observer;
+    private ConcurrentLinkedQueue<String> queue = new ConcurrentLinkedQueue();
     
     public void adicionar(String url){
-        fila.add(url); 
+        //fila.add(url); 
+        queue.add(url);
         notifyObserver();
+        
     }
     
-    public Queue<String> getFila() {
-        return fila;
+    public ConcurrentLinkedQueue<String> getFila() {
+        return queue;
     }
 
-    public void setFila(Queue<String> fila) {
-        this.fila = fila;
+    public void setFila(ConcurrentLinkedQueue<String> fila) {
+        this.queue = fila;
     }
 
     @Override
     public void attach(Observer o) {
-        observers.add(o);
-    }
-
-    @Override
+        this.observer = o;
+    } 
     public void dettach(Observer o) {
-        observers.remove(o);
+        this.observer = o;
     }
 
     @Override
     public void notifyObserver() {
-        
-        int i;
-        for(i=0; i < observers.size(); i++){
-            
-            observers.get(i).update(this);
-        }
+        String imagem = null;
+        if(queue.peek() != null){
+            imagem = queue.remove();
+        }  
+        this.observer.update(imagem);
     }
 }

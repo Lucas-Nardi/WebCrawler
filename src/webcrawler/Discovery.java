@@ -52,7 +52,7 @@ public class Discovery {
 
         InputStream inputStream = null;
         OutputStream outputStream = null;
-        String destino = "C:\\Users\\Pichau\\Documents\\NetBeansProjects\\WebCrawler\\test\\imagem";
+        String destino = "C:\\Users\\Pichau\\Documents\\NetBeansProjects\\WebCrawler\\test\\";
         try {
             URL url = new URL(site);
             inputStream = url.openStream();

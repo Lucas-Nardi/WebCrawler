@@ -10,7 +10,6 @@ import java.net.URL;
 
 public class ThreadImgBaixada extends Thread {
 
-    
     private String site;
     private int num;
 
@@ -23,7 +22,7 @@ public class ThreadImgBaixada extends Thread {
     public void run(){
         InputStream inputStream = null;
         OutputStream outputStream = null;
-        String destino = "C:\\Users\\Pichau\\Documents\\NetBeansProjects\\WebCrawler\\teste2\\imagem";
+        String destino = "C:\\Users\\Pichau\\Documents\\NetBeansProjects\\WebCrawler\\teste2\\";
         System.out.println(site);
         try {
             URL url = new URL(site);

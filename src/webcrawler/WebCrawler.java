@@ -26,9 +26,9 @@ public class WebCrawler {
                 if (readLine == null) {
                     break;
                 }
-                discovery.PegarImagens(readLine);
-                //thread = new ThreadUrl(readLine);
-                //thread.start();
+                //discovery.PegarImagens(readLine);
+                thread = new ThreadUrl(readLine);
+                thread.start();
             }
             bufferR.close();
             fileR.close();

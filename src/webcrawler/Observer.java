@@ -2,5 +2,5 @@ package webcrawler;
 
 interface Observer {
     
-    void update(Object o);
+    void update(String url);
 }
