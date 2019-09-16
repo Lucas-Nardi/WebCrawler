@@ -1,4 +1,3 @@
-package webcrawler;
 
 public class Observador implements Observer {
 

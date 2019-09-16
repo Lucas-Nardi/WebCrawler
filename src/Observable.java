@@ -1,4 +1,4 @@
-package webcrawler;
+
 
 interface Observable {
  

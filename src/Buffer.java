@@ -1,4 +1,4 @@
-package webcrawler;
+
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Buffer implements Observable{
 
-    private Queue <String> fila = new LinkedList<>();  
+   // private Queue <String> fila = new LinkedList<>();  
     private Observer observer;
     private ConcurrentLinkedQueue<String> queue = new ConcurrentLinkedQueue();
     

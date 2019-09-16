@@ -1,5 +1,6 @@
-package webcrawler;
 
+
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -22,8 +23,10 @@ public class ThreadImgBaixada extends Thread {
     public void run(){
         InputStream inputStream = null;
         OutputStream outputStream = null;
-        String destino = "C:\\Users\\Pichau\\Documents\\NetBeansProjects\\WebCrawler\\teste2\\";
-        System.out.println(site);
+        String de = System.getProperty("user.dir");
+        File dir = new File(WebCrawler.destino);
+        dir.mkdir();        
+        String destino = de + "\\" + WebCrawler.destino + "\\";
         try {
             URL url = new URL(site);
             inputStream = url.openStream();

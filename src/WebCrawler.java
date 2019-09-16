@@ -1,4 +1,3 @@
-package webcrawler;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -8,7 +7,8 @@ import java.io.IOException;
 
 public class WebCrawler {
 
-    public static Buffer buffer = new Buffer();    
+    public static Buffer buffer = new Buffer();
+    public static String destino;
     
     public static void LerArquivo(String nome) throws IOException, Exception {
 
@@ -16,7 +16,7 @@ public class WebCrawler {
         FileReader fileR = null;
         BufferedReader bufferR = null;
         String readLine = "";
-        Discovery discovery = new Discovery();
+        //Discovery discovery = new Discovery();
         ThreadUrl thread;
         if (arq.exists()) {
             fileR = new FileReader(arq);
@@ -41,8 +41,9 @@ public class WebCrawler {
 
     public static void main(String[] args) throws IOException, Exception {
         Observador observer = new Observador();
-        buffer.attach(observer);
-        LerArquivo("url.txt");
+        buffer.attach(observer);        
+        destino = args[1];        
+        LerArquivo(args[0]);
     }
 }
 

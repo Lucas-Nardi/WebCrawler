@@ -1,4 +1,4 @@
-package webcrawler;
+
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -33,6 +33,7 @@ public class ThreadUrl extends Thread {
             System.err.println(ex);
         }
     }
+    
     private static String getHTML(String urlToRead) throws Exception {
         StringBuilder result = new StringBuilder();
         URL url = new URL(urlToRead);

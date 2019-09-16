@@ -1,4 +1,3 @@
-package webcrawler;
 
 interface Observer {
     
